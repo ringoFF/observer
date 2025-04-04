@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbqic7dxyifr7"]
+
+[ext_resource type="Script" uid="uid://cns5bfpjiyx50" path="res://scripts/cell.gd" id="1_0s7o3"]
+[ext_resource type="Texture2D" uid="uid://btt1ioegig8rj" path="res://assets/images/square_stone_flat_E.png" id="2_0s7o3"]
+[ext_resource type="SpriteFrames" uid="uid://bdw0al23uxx82" path="res://assets/anims/equipanim.tres" id="3_nm02e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upbjj"]
+
+[node name="Cell" type="Area2D" node_paths=PackedStringArray("animated_sprite_2d")]
+z_index = -10
+texture_filter = 1
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_0s7o3")
+animated_sprite_2d = NodePath("Enemy/AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_upbjj")
+
+[node name="Board" type="Sprite2D" parent="."]
+position = Vector2(0, -85)
+scale = Vector2(0.402344, 0.53125)
+texture = ExtResource("2_0s7o3")
+
+[node name="Enemy" type="Node2D" parent="."]
+z_index = 5
+rotation = 0.785398
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("3_nm02e")
+animation = &"top"
+autoplay = "default"

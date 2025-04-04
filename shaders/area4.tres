@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dsduaflr0b3x7"]
+
+[ext_resource type="Shader" uid="uid://bfmydanetjs4n" path="res://shaders/panel_keyprompt.gdshader" id="1_kanme"]
+
+[resource]
+shader = ExtResource("1_kanme")

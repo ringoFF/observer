@@ -1,0 +1,410 @@
+[gd_scene load_steps=20 format=3 uid="uid://bksmot7ibvtwg"]
+
+[ext_resource type="Script" uid="uid://cv4yy256jhjil" path="res://scripts/panel_keyprompt.gd" id="1_gmpjr"]
+[ext_resource type="Texture2D" uid="uid://dy6utgyiku7qg" path="res://assets/images/crate_E.png" id="2_3ky3e"]
+[ext_resource type="Texture2D" uid="uid://dykfmp21tdf6d" path="res://assets/images/equip/caster.png" id="3_bcox6"]
+[ext_resource type="Texture2D" uid="uid://df2wq3uv30pe1" path="res://assets/images/eyes/0.png" id="3_v20ft"]
+[ext_resource type="Texture2D" uid="uid://6gpfu2j26whk" path="res://assets/images/eyes/1.png" id="4_7adpc"]
+[ext_resource type="Texture2D" uid="uid://py1pgdqgud6o" path="res://assets/images/eyes/2.png" id="5_bcox6"]
+[ext_resource type="Texture2D" uid="uid://bdda3slpwitpt" path="res://assets/images/arrow/arrow_w_out.png" id="6_sg5y2"]
+[ext_resource type="Texture2D" uid="uid://c623y2pe6bqba" path="res://assets/images/equip/knight.png" id="7_sg5y2"]
+[ext_resource type="Texture2D" uid="uid://c438yrcehx4bf" path="res://assets/images/equip/saber.png" id="8_85t17"]
+[ext_resource type="Texture2D" uid="uid://du36nre7uv4f" path="res://assets/images/arrow/arrow_e_out.png" id="8_lomfr"]
+[ext_resource type="Texture2D" uid="uid://cf6dm2nj0hd0b" path="res://assets/images/arrow/arraw_w.png" id="9_bcox6"]
+[ext_resource type="Texture2D" uid="uid://deatfhg3dcqvm" path="res://assets/images/arrow/arrow_n_out.png" id="10_v5ns3"]
+[ext_resource type="Texture2D" uid="uid://dl3mwc6bnqb4m" path="res://assets/images/arrow/arraw_e.png" id="11_bcox6"]
+[ext_resource type="Texture2D" uid="uid://d2bstdlqmtxw5" path="res://assets/images/arrow/arrow_s_out.png" id="12_tl2ig"]
+[ext_resource type="Texture2D" uid="uid://bfx2h8cn4mpy7" path="res://assets/images/arrow/arraw_n.png" id="13_sg5y2"]
+[ext_resource type="Shader" uid="uid://bfmydanetjs4n" path="res://shaders/panel_keyprompt.gdshader" id="14_3ky3e"]
+[ext_resource type="Texture2D" uid="uid://celtjus3qw5yr" path="res://assets/images/arrow/arraw_s.png" id="15_85t17"]
+[ext_resource type="Texture2D" uid="uid://4wnlt2r1vsfd" path="res://icon.svg" id="18_sg5y2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v20ft"]
+shader = ExtResource("14_3ky3e")
+
+[node name="PanelKeyprompt" type="Control" node_paths=PackedStringArray("top", "left", "front", "eyes_top", "eyes_left", "eyes_front", "west", "east", "north", "south", "rect_1", "rect_2", "rect_3")]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = -108.0
+offset_top = -23.0
+offset_right = -108.0
+offset_bottom = -23.0
+script = ExtResource("1_gmpjr")
+top = NodePath("Top")
+left = NodePath("Left")
+front = NodePath("Front")
+eyes_top = NodePath("Top/EyesBack")
+eyes_left = NodePath("Left/EyesBack")
+eyes_front = NodePath("Front/EyesBack")
+west = NodePath("tips_h/front_west")
+east = NodePath("tips_h/front_east")
+north = NodePath("tips_v/front_north")
+south = NodePath("tips_v/front_south")
+texture_saber = ExtResource("8_85t17")
+texture_knight = ExtResource("7_sg5y2")
+texture_caster = ExtResource("3_bcox6")
+rect_1 = NodePath("tips_op/HBoxContainer/1")
+rect_2 = NodePath("tips_op/HBoxContainer/2")
+rect_3 = NodePath("tips_op/HBoxContainer/3")
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = 7
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.167
+anchor_right = 1.136
+anchor_bottom = 0.956
+offset_left = -13.0
+offset_top = -255.924
+offset_right = 243.0
+offset_bottom = 256.076
+texture = ExtResource("2_3ky3e")
+
+[node name="Top" type="Control" parent="."]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 31.0
+offset_right = 43.0
+offset_bottom = 71.0
+
+[node name="Icon" type="TextureRect" parent="Top"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 5.404
+anchor_bottom = 5.409
+offset_left = 59.0
+offset_top = 18.0
+offset_right = -65.16
+offset_bottom = -123.36
+texture = ExtResource("3_bcox6")
+stretch_mode = 4
+
+[node name="EyesBack" type="TextureRect" parent="Top"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 5.404
+anchor_bottom = 5.409
+offset_left = 75.0
+offset_top = -42.0
+offset_right = -75.16
+offset_bottom = -212.36
+texture = ExtResource("3_v20ft")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyesFront" type="TextureRect" parent="Top/EyesBack"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.37
+anchor_top = 0.043
+anchor_right = 2.774
+anchor_bottom = 5.409
+offset_left = 58.02
+offset_top = -1.978
+offset_right = -75.604
+offset_bottom = -193.814
+texture = ExtResource("4_7adpc")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyesInner" type="TextureRect" parent="Top/EyesBack/EyesFront"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.37
+anchor_top = 0.043
+anchor_right = 2.774
+anchor_bottom = 5.409
+offset_left = 83.09
+offset_top = 1.635
+offset_right = -106.118
+offset_bottom = -244.495
+texture = ExtResource("5_bcox6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Front" type="Control" parent="."]
+z_index = 8
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 31.0
+offset_right = 43.0
+offset_bottom = 71.0
+
+[node name="Icon" type="TextureRect" parent="Front"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 5.404
+anchor_bottom = 5.409
+offset_left = 5.0
+offset_top = 109.0
+offset_right = -119.16
+offset_bottom = -32.36
+texture = ExtResource("7_sg5y2")
+stretch_mode = 4
+
+[node name="EyesBack" type="TextureRect" parent="Front"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 5.404
+anchor_bottom = 5.409
+offset_left = -52.0
+offset_top = 146.0
+offset_right = -202.16
+offset_bottom = -24.36
+texture = ExtResource("3_v20ft")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyesFront" type="TextureRect" parent="Front/EyesBack"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.37
+anchor_top = 0.043
+anchor_right = 2.774
+anchor_bottom = 5.409
+offset_left = 62.02
+offset_top = -7.978
+offset_right = -71.604
+offset_bottom = -199.814
+texture = ExtResource("4_7adpc")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyesInner" type="TextureRect" parent="Front/EyesBack/EyesFront"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.37
+anchor_top = 0.043
+anchor_right = 2.774
+anchor_bottom = 5.409
+offset_left = 83.09
+offset_top = 1.635
+offset_right = -106.118
+offset_bottom = -244.495
+texture = ExtResource("5_bcox6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Left" type="Control" parent="."]
+z_index = 8
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 31.0
+offset_right = 43.0
+offset_bottom = 71.0
+
+[node name="Icon" type="TextureRect" parent="Left"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 5.404
+anchor_bottom = 5.409
+offset_left = 116.0
+offset_top = 108.0
+offset_right = -8.16
+offset_bottom = -33.36
+texture = ExtResource("8_85t17")
+stretch_mode = 4
+
+[node name="EyesBack" type="TextureRect" parent="Left"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 5.404
+anchor_bottom = 5.409
+offset_left = 204.0
+offset_top = 148.0
+offset_right = 53.84
+offset_bottom = -22.36
+texture = ExtResource("3_v20ft")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyesFront" type="TextureRect" parent="Left/EyesBack"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.37
+anchor_top = 0.043
+anchor_right = 2.774
+anchor_bottom = 5.409
+offset_left = 55.02
+offset_top = -8.978
+offset_right = -78.604
+offset_bottom = -200.814
+texture = ExtResource("4_7adpc")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyesInner" type="TextureRect" parent="Left/EyesBack/EyesFront"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.37
+anchor_top = 0.043
+anchor_right = 2.774
+anchor_bottom = 5.409
+offset_left = 83.09
+offset_top = 1.635
+offset_right = -106.118
+offset_bottom = -244.495
+texture = ExtResource("5_bcox6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="tips_h" type="Control" parent="."]
+z_index = 10
+layout_mode = 1
+anchor_right = 1.17
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = 226.0
+offset_right = 42.0
+offset_bottom = 226.0
+
+[node name="front_west" type="TextureRect" parent="tips_h"]
+z_index = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_bcox6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="back_west" type="TextureRect" parent="tips_h"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_sg5y2")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="front_east" type="TextureRect" parent="tips_h"]
+z_index = 1
+layout_mode = 0
+offset_left = 109.0
+offset_right = 149.0
+offset_bottom = 40.0
+texture = ExtResource("11_bcox6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="back_east" type="TextureRect" parent="tips_h"]
+layout_mode = 0
+offset_left = 109.0
+offset_right = 149.0
+offset_bottom = 40.0
+texture = ExtResource("8_lomfr")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="tips_v" type="Control" parent="."]
+z_index = 10
+layout_mode = 1
+anchor_right = 1.17
+anchor_bottom = 1.0
+offset_left = 232.0
+offset_top = 50.0
+offset_right = 232.0
+offset_bottom = 50.0
+
+[node name="front_north" type="TextureRect" parent="tips_v"]
+z_index = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_sg5y2")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="back_north" type="TextureRect" parent="tips_v"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("10_v5ns3")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="front_south" type="TextureRect" parent="tips_v"]
+z_index = 1
+layout_mode = 0
+offset_top = 65.0
+offset_right = 40.0
+offset_bottom = 105.0
+texture = ExtResource("15_85t17")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="back_south" type="TextureRect" parent="tips_v"]
+layout_mode = 0
+offset_top = 65.0
+offset_right = 40.0
+offset_bottom = 105.0
+texture = ExtResource("12_tl2ig")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ColorRect" type="TextureRect" parent="."]
+z_index = 9
+material = SubResource("ShaderMaterial_v20ft")
+layout_mode = 0
+offset_left = 32.0
+offset_top = 44.0
+offset_right = 206.0
+offset_bottom = 230.0
+texture = ExtResource("18_sg5y2")
+expand_mode = 1
+
+[node name="tips_op" type="Control" parent="."]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_top = -143.0
+offset_right = 50.0
+offset_bottom = -103.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="tips_op"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = 16.0
+offset_right = 193.0
+offset_bottom = 56.0
+scale = Vector2(1.5, 1.5)
+
+[node name="1" type="TextureRect" parent="tips_op/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_bcox6")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="arrow" type="TextureRect" parent="tips_op/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_lomfr")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="2" type="TextureRect" parent="tips_op/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_sg5y2")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="arrow2" type="TextureRect" parent="tips_op/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_lomfr")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="3" type="TextureRect" parent="tips_op/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_85t17")
+expand_mode = 2
+stretch_mode = 4

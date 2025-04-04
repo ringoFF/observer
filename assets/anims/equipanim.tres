@@ -1,0 +1,45 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bdw0al23uxx82"]
+
+[ext_resource type="Texture2D" uid="uid://x26u3k4kind4" path="res://assets/images/ui_img.png" id="1_nedc7"]
+[ext_resource type="Texture2D" uid="uid://c623y2pe6bqba" path="res://assets/images/equip/knight.png" id="2_xb00h"]
+[ext_resource type="Texture2D" uid="uid://c438yrcehx4bf" path="res://assets/images/equip/saber.png" id="3_qik4h"]
+[ext_resource type="Texture2D" uid="uid://dykfmp21tdf6d" path="res://assets/images/equip/caster.png" id="4_dn7n8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at378"]
+atlas = ExtResource("1_nedc7")
+region = Rect2(363, 33, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at378")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xb00h")
+}],
+"loop": true,
+"name": &"front",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qik4h")
+}],
+"loop": true,
+"name": &"left",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dn7n8")
+}],
+"loop": true,
+"name": &"top",
+"speed": 3.0
+}]

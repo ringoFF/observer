@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamPlaylist" load_steps=5 format=3 uid="uid://4avl77unync7"]
+
+[ext_resource type="AudioStream" uid="uid://dqr8j4sjf1dof" path="res://assets/images/musics/lc.wav" id="1_r34yo"]
+[ext_resource type="AudioStream" uid="uid://bvt2grxos68ny" path="res://assets/images/musics/dmitry.wav" id="2_2dk6f"]
+[ext_resource type="AudioStream" uid="uid://bqyyk4gke5nfv" path="res://assets/images/musics/dmitry2.wav" id="3_n3cnf"]
+[ext_resource type="AudioStream" uid="uid://6mufmf2abhlq" path="res://assets/images/musics/H0rizon.wav" id="4_jxufc"]
+
+[resource]
+stream_count = 4
+stream_0 = ExtResource("1_r34yo")
+stream_1 = ExtResource("2_2dk6f")
+stream_2 = ExtResource("3_n3cnf")
+stream_3 = ExtResource("4_jxufc")
