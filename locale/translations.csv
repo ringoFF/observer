@@ -1,0 +1,157 @@
+type,en,zh-CN
+language,English,中文
+game_title,Observer,观察者
+start_game,START,开始游戏
+help,HELP,帮  助
+credits,CREDITS,素材声明
+achievement,ACHIEVEMENT,成  就
+end_game,END,结束游戏
+setting,SETTING,设置
+score,SCORE,分数
+combo,COMBO,连击数
+max_combo,MAX COMBO,最大连击数
+continue,CONTINUE,继  续
+restart,RESTART,重新开始
+back_menu,BACK MENU,返回主菜单
+victory,VICTORY,胜  利
+defeat,DEFEAT,失  败
+close,close,关  闭
+mo_record,mo_record,不存在记录
+help_content,"[color=#66CCFF]Game Background[/color]
+In the Papercut Kingdom dominated by 2D characters, two competitive professions exist:
+
+[Seeker]: Constantly measuring angles in 2D world to locate 3D objects, shouting ""Coordinates locked!"" when found  
+[Observer]: Responsible for flattening 3D objects into 2D equipment through dimensional reduction, but often fails due to perspective errors
+Competition among observers has intensified, with projection duels becoming routine. The ""Guardian Artifact Cup"" is now in full swing, where defeating five top-tier opponents consecutively unlocks substantial rewards.
+[color=#66CCFF]National Treasure's Attributes[/color]
+
+Front view →[color=#e4c914] Yellow ■ Shield[/color] (DEF MAX)  
+Side view → [color=#ff0000] Red | Sword[/color] (ATK MAX)  
+Vertical view → [color=#75e3ff] Blue / Staff[/color] (MAG MAX)  
+
+[color=#66CCFF]Controls[/color]
+
+[color=red]A  D  ← →[/color]  Switch horizontal viewing angle  
+[color=red]W  S  ↑  ↓[/color]   Switch vertical viewing angle  
+
+[color=#66CCFF]Rock-Paper-Scissors System[/color]
+■ Shield deflects | Sword → ""Strike as you will, I stand firm""  
+| Sword pierces / Staff → ""Melee counters flashy tricks""  
+/ Staff blasts ■ Shield → ""Magic breaks defense, shields crumble""  
+
+When identical equipment collides: ""No recursive sets!"" (System freeze)
+
+[color=#66CCFF]Tips[/color]
+
+Use arrow keys to switch viewing angles  
+Observe countering forms before enemy attacks  
+Higher combo count grants extra score bonus  
+Being countered resets combo  ","[color=#66CCFF]游戏背景[/color]
+在纸片人横行的瞳之国，?搜寻者和观察者是两大卷王职业：
+
+?搜寻者：整天拿着量角器在二维世界找三维物体，找到就大喊""坐标已锁定！""
+?观察者：负责把三维物体""降维打击""成二次元装备，但经常因为视角偏差翻车——
+观察者之间的竞争日益激烈，投影对决已成常态。近日，「镇国神器杯」赛事正火热进行，参赛者需连续击败五位顶尖对手，即可赢得丰厚奖励。
+[color=#66CCFF]镇国神器的属性[/color]
+
+正后看 →[color=#e4c914] 黄 ■ 盾牌[/color]（防御MAX）
+侧面看 → [color=#ff0000] 红|长剑[/color]（攻击MAX）
+俯仰看 → [color=#75e3ff] 蓝 / 法杖[/color]（魔法MAX）
+
+[color=#66CCFF]操作说明[/color]
+
+[color=red]A  D  ← →[/color]  切换水平观察角度
+[color=red]W  S  ↑  ↓[/color]   切换垂直观察角度  
+
+[color=#66CCFF]克制关系[/color]
+■ 盾牌 ?反弹 | 长剑 → ""你砍任你砍，我自岿然不动""
+| 长剑 ?刺穿 / 法杖 → ""近战专治花里胡哨""
+/ 法杖 ?轰飞 ■ 盾牌 → ""魔法破防，盾牌自闭""
+
+当相同装备对撞时：""禁止套娃！""（系统直接卡死）
+
+[color=#66CCFF]提示[/color]
+
+使用方向键切换观察角度  
+在敌人攻击前观察克制形态  
+连击数越高额外分数加成越高  
+被克制则连击数清零"
+credits_content,"[center][color=#66CCFF]Asset Attribution[/color][/center]
+
+[indent][color=#FFA500]CC0 Assets:[/color]
+Arts/UI resources from [url=https://kenney.nl]Kenney.nl[/url]
+(Under CC0 1.0 Universal Public Domain Dedication)
+
+[color=#FFA500]Music:[/color]
+""Music provided by [乌鸦Producer]""
+
+[color=#FFA500]Font:[/color]
+""[url=https://poppyworks.itch.io/silver]silver[/url]""[/indent]
+
+[center][color=#888888]※ This fan-made game is not for commercial use ※[/color][/center]","[center][color=#66CCFF]素材来源说明[/color][/center]
+
+[indent][color=#FFA500]CC0素材：[/color]
+来自 [url=https://kenney.nl]Kenney.nl[/url] 的美术/UI资源
+（遵循CC0 1.0公有领域协议）
+
+[color=#FFA500]音乐：[/color]
+""音乐由[乌鸦Producer]提供""
+
+[color=#FFA500]字体:[/color]
+""[url=https://poppyworks.itch.io/silver]silver[/url]""[/indent]
+
+[center][color=#888888]※ 本游戏为爱好者创作，不用于商业用途 ※[/color][/center]"
+achievement_content,"[center][font size=36][color=#FFD700]------------   RECORDS   ------------[/color][/font][/center]
+[table=3]
+[cell][color=#66CCFF]Stage Progress[/color][/cell]
+[cell] [/cell]
+[cell]%s[/cell]
+[cell][color=#66CCFF]High Score[/color][/cell]
+[cell] [/cell]
+[cell]%d[/cell]
+[cell][color=#66CCFF]Max Combo[/color][/cell]
+[cell] [/cell]
+[cell]Normal %d  Quick %d  Multiple %d  Dark %d  Illusory %d[/cell]
+[/table]
+
+[center][font size=36][color=#00FF00]------------   ACHIEVEMENTS   ------------[/color][/font][/center]
+[indent]
+[color=#FFA500]Progress[/color]
+%s Game Entry        %s Normal Pupil        %s Quick Pupil
+%s Multiple Pupil    %s Dark Pupil          %s Illusory Pupil
+[color=#FFA500]Full Combo![/color]
+%s Normal FC         %s Quick FC          %s Multiple FC           %s Dark FC          %s Illusory FC
+[color=#FFA500]Score Milestones[/color]
+%s 160 Reached        %s 266 Reached        %s 399 Reached        %s 420 Reached        %s 768 Reached
+[/indent]","[center][font size=36][color=#FFD700]------------   记录   ------------[/color][/font][/center]
+[table=3]
+[cell][color=#66CCFF]关卡进度[/color][/cell]
+[cell] [/cell]
+[cell]%s[/cell]
+[cell][color=#66CCFF]最高得分[/color][/cell]
+[cell] [/cell]
+[cell]%d[/cell]
+[cell][color=#66CCFF]最大连击[/color][/cell]
+[cell] [/cell]
+[cell]普瞳 %d  速瞳 %d  重瞳 %d  黑瞳 %d  幻瞳 %d[/cell]
+[/table]
+[center][font size=36][color=#00FF00]------------   成就   ------------[/color][/font][/center]
+[indent]
+[color=#FFA500]进度[/color]
+%s 进入游戏        %s 击败普瞳        %s 击败速瞳          %s 击败重瞳         %s 击败黑瞳        %s 击败幻瞳
+[color=#FFA500]Full Combo！[/color]
+%s 普瞳fc         %s 速瞳fc          %s 重瞳fc           %s 黑瞳fc          %s 幻瞳fc
+[color=#FFA500]最高分数[/color]
+%s 最高分数到达160        %s 最高分数到达266        %s 最高分数到达399
+%s 最高分数到达420        %s 最高分数到达768
+[/indent]"
+enemy_1_name,Normal Pupil,普瞳
+enemy_2_name,Quick Pupil,速瞳
+enemy_3_name,Multiple Pupil,重瞳
+enemy_4_name,Dark Pupil,黑瞳
+enemy_5_name,Illusory Pupil,幻瞳
+enemy_1_descripttion,A standard eyeball with no distinctive features,很普通的眼珠子，没什么特色
+enemy_2_descripttion,High-speed eyeball with rapid movement,速度比较快的眼珠子
+enemy_3_descripttion,Eyeball capable of velocity modulation,比较无敌的眼珠子，可以改变速度
+enemy_4_descripttion,Sneaky eyeball that hides objects,有点猥琐的眼珠子，是个藏比
+enemy_5_descripttion,Versatile eyeball with multi-skills,各个方面都会一点的眼珠子

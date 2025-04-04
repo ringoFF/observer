@@ -1,0 +1,1201 @@
+[gd_scene load_steps=45 format=3 uid="uid://2g1s8ynhduyu"]
+
+[ext_resource type="Script" uid="uid://bmm3wkx4mntku" path="res://scripts/queue_manager.gd" id="1_i8va4"]
+[ext_resource type="Script" uid="uid://cd71o8nwaoopr" path="res://scripts/player.gd" id="2_k15ac"]
+[ext_resource type="SpriteFrames" uid="uid://bdw0al23uxx82" path="res://assets/anims/equipanim.tres" id="2_nx2sv"]
+[ext_resource type="Texture2D" uid="uid://b4q6y02ltobc4" path="res://assets/images/square_wood_flat_E.png" id="3_ahgcb"]
+[ext_resource type="Script" uid="uid://b88bkdvh6av00" path="res://scripts/player_health_container.gd" id="4_60i0e"]
+[ext_resource type="Shader" uid="uid://b63fddecbdumm" path="res://shaders/hide_mask.gdshader" id="4_j0xcf"]
+[ext_resource type="Script" uid="uid://ddcakg04oc5qb" path="res://scripts/main_ui.gd" id="4_mu2ks"]
+[ext_resource type="AudioStream" uid="uid://4avl77unync7" path="res://assets/images/musics/game_audio_stream_playlist.tres" id="4_ruyfq"]
+[ext_resource type="Script" uid="uid://belfn0jq85pg2" path="res://scripts/enemy_health_container.gd" id="5_hiawh"]
+[ext_resource type="Texture2D" uid="uid://ov8bj03t6c1c" path="res://assets/images/mask.png" id="5_j0xcf"]
+[ext_resource type="PackedScene" uid="uid://bksmot7ibvtwg" path="res://scenes/panel_keyprompt.tscn" id="6_wj18i"]
+[ext_resource type="Texture2D" uid="uid://df2wq3uv30pe1" path="res://assets/images/eyes/0.png" id="7_n6p2k"]
+[ext_resource type="Texture2D" uid="uid://bdda3slpwitpt" path="res://assets/images/arrow/arrow_w_out.png" id="8_8ja4j"]
+[ext_resource type="Texture2D" uid="uid://6gpfu2j26whk" path="res://assets/images/eyes/1.png" id="8_vlyvo"]
+[ext_resource type="FontFile" uid="uid://b0j7qsforgacb" path="res://assets/fonts/Silver.ttf" id="9_3w1jc"]
+[ext_resource type="Theme" uid="uid://bd38esf4yt12c" path="res://assets/fonts/sliver_font_theme.tres" id="9_g53tl"]
+[ext_resource type="Texture2D" uid="uid://du36nre7uv4f" path="res://assets/images/arrow/arrow_e_out.png" id="9_gt45n"]
+[ext_resource type="Texture2D" uid="uid://py1pgdqgud6o" path="res://assets/images/eyes/2.png" id="9_jlsc5"]
+[ext_resource type="Script" uid="uid://cky1yksi7i18a" path="res://scripts/panel_settle.gd" id="10_vlyvo"]
+[ext_resource type="Script" uid="uid://bwtidvgdaadtt" path="res://scripts/health_info.gd" id="11_jlsc5"]
+[ext_resource type="Texture2D" uid="uid://ybm58bvu6j84" path="res://assets/images/speed.png" id="14_gp25p"]
+[ext_resource type="Material" uid="uid://dsduaflr0b3x7" path="res://shaders/area4.tres" id="15_we7bn"]
+[ext_resource type="Material" uid="uid://14yfcvsxohws" path="res://shaders/area5.tres" id="16_we7bn"]
+[ext_resource type="AudioStream" uid="uid://dqr8j4sjf1dof" path="res://assets/images/musics/lc.wav" id="17_j0xcf"]
+[ext_resource type="Texture2D" uid="uid://4wnlt2r1vsfd" path="res://icon.svg" id="17_we7bn"]
+[ext_resource type="Script" uid="uid://nbesfeelaqw6" path="res://scripts/panel_menu.gd" id="18_t5k4l"]
+[ext_resource type="LabelSettings" uid="uid://dscq461lx12e8" path="res://assets/fonts/label_font_setting.tres" id="22_3w1jc"]
+[ext_resource type="Texture2D" uid="uid://bqefscqy02oh2" path="res://assets/images/figure.png" id="23_kk78y"]
+[ext_resource type="Texture2D" uid="uid://ctixrckvaosgx" path="res://assets/images/figure-1.png" id="24_ahgcb"]
+[ext_resource type="LabelSettings" uid="uid://d2fx21hguxru4" path="res://assets/fonts/label_smail_font_setting.tres" id="26_8vrvx"]
+[ext_resource type="Texture2D" uid="uid://ttabq3tqj4wy" path="res://assets/images/health.png" id="30_fhyic"]
+[ext_resource type="Material" uid="uid://bskb5hj8ecwgs" path="res://shaders/loading.tres" id="32_k8akk"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_j0xcf"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ruyfq"]
+noise = SubResource("FastNoiseLite_j0xcf")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_t5k4l"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gp25p"]
+noise = SubResource("FastNoiseLite_t5k4l")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ruyfq"]
+shader = ExtResource("4_j0xcf")
+shader_parameter/noise_tex1 = SubResource("NoiseTexture2D_ruyfq")
+shader_parameter/noise_tex2 = SubResource("NoiseTexture2D_gp25p")
+shader_parameter/distortion_strength = 0.1
+shader_parameter/offset1 = Vector2(-0.1, -0.1)
+shader_parameter/offset2 = Vector2(0.2, 0.2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8vrvx"]
+font = ExtResource("9_3w1jc")
+font_size = 96
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mu2ks"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_we7bn"]
+viewport_path = NodePath("GameUI/SubViewport")
+
+[sub_resource type="Animation" id="Animation_sqis4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CountDown:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(229, 152, 16, 18)]
+}
+
+[sub_resource type="Animation" id="Animation_k8akk"]
+resource_name = "game_start"
+length = 2.5
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CountDown:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.03333, 2, 2.49),
+"transitions": PackedFloat32Array(-10, -10, -10, -10),
+"update": 0,
+"values": [Rect2(247, 152, 18, 18), Rect2(229, 152, 16, 18), Rect2(210, 152, 16, 18), Rect2(210, 152, 16, 18)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0fhfv"]
+_data = {
+&"RESET": SubResource("Animation_sqis4"),
+&"game_start": SubResource("Animation_k8akk")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doyqq"]
+atlas = ExtResource("30_fhyic")
+region = Rect2(229, 152, 16, 18)
+
+[node name="Maingame" type="Node2D"]
+texture_filter = 1
+
+[node name="Player" type="Node2D" parent="." node_paths=PackedStringArray("animated_sprite_2d", "queue_manager", "player_health_container", "enemy_health_container", "panel_keyprompt")]
+visible = false
+z_index = 10
+texture_filter = 1
+position = Vector2(-146, -25)
+scale = Vector2(5, 5)
+script = ExtResource("2_k15ac")
+animated_sprite_2d = NodePath("AnimatedSprite2D")
+queue_manager = NodePath("../QueueManager")
+player_health_container = NodePath("../GameUI/PlayerHealthContainer")
+enemy_health_container = NodePath("../GameUI/EnemyHealthContainer")
+panel_keyprompt = NodePath("../GameUI/PanelKeyprompt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
+sprite_frames = ExtResource("2_nx2sv")
+autoplay = "default"
+
+[node name="Board" type="Sprite2D" parent="Player"]
+z_index = -10
+position = Vector2(11.2, -9.4)
+rotation = 0.785398
+scale = Vector2(0.08, 0.106)
+texture = ExtResource("3_ahgcb")
+
+[node name="QueueManager" type="Node2D" parent="." node_paths=PackedStringArray("audio_stream_player", "panel_settle", "panel_menu", "player", "game_ui", "main_ui", "hide_mask", "count_down_anim", "count_down_area", "score_label", "combo_label")]
+rotation = -0.785398
+script = ExtResource("1_i8va4")
+audio_stream_player = NodePath("../AudioStreamPlayer")
+panel_settle = NodePath("../GameUI/PanelSettle")
+panel_menu = NodePath("../GameUI/PanelMenu")
+player = NodePath("../Player")
+game_ui = NodePath("../GameUI")
+main_ui = NodePath("../MainUI")
+hide_mask = NodePath("HideMask")
+playlist = ExtResource("4_ruyfq")
+count_down_anim = NodePath("../GameUI/CountDownAnim")
+count_down_area = NodePath("../GameUI/CountDown")
+score_label = NodePath("../GameUI/ScoreLabel")
+combo_label = NodePath("../GameUI/ComboLabel")
+
+[node name="Container" type="Node2D" parent="QueueManager"]
+
+[node name="Timer" type="Timer" parent="QueueManager"]
+
+[node name="SpawnPoint" type="Marker2D" parent="QueueManager"]
+position = Vector2(-601, 0)
+
+[node name="HideMask" type="Sprite2D" parent="QueueManager"]
+visible = false
+material = SubResource("ShaderMaterial_ruyfq")
+position = Vector2(100, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("5_j0xcf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MainUI" type="Control" parent="." node_paths=PackedStringArray("queue_manager", "_button_last", "_button_next", "_label_enemy_name", "_label_enemy_description", "_enemy_health_container", "_enemy_area2", "_enemy_area3", "_enemy_area4", "_enemy_area5", "_game_enemy_area2", "_game_enemy_area3", "_game_enemy_area4", "_game_enemy_area5", "_label_game_title", "_button_start_game", "_button_help", "_button_credits", "_button_achievement", "_button_end_game", "_button_close_help", "_button_close_credits", "_button_close_achievement", "_button_check_language", "_label_setting_menu_title", "_button_setting_menu_continue", "_button_setting_menu_restart", "_button_setting_menu_back_nenu", "_button_settle_back_nenu", "_label_game_enemy_name", "_label_game_enemy_description", "_panel_thx", "_panel_help", "_panel_ach", "_rich_text_credits", "_rich_text_help", "_rich_text_ach", "_label_version")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_mu2ks")
+queue_manager = NodePath("../QueueManager")
+_button_last = NodePath("ChangeEnemy/ButtonLast")
+_button_next = NodePath("ChangeEnemy/ButtonNext")
+_label_enemy_name = NodePath("ChangeEnemy/LabelEnemyName")
+_label_enemy_description = NodePath("ChangeEnemy/LabelEnemyDescription")
+_enemy_health_container = NodePath("ChangeEnemy/EnemyHealthContainer")
+_enemy_area2 = NodePath("ChangeEnemy/Area2")
+_enemy_area3 = NodePath("ChangeEnemy/Area3")
+_enemy_area4 = NodePath("ChangeEnemy/Area4")
+_enemy_area5 = NodePath("ChangeEnemy/Area5")
+_game_enemy_area2 = NodePath("../GameUI/Area2")
+_game_enemy_area3 = NodePath("../GameUI/Area3")
+_game_enemy_area4 = NodePath("../GameUI/SubViewport/Area4")
+_game_enemy_area5 = NodePath("../GameUI/SubViewport/Area5")
+_loading_material = ExtResource("32_k8akk")
+_label_game_title = NodePath("TitleLabel")
+_button_start_game = NodePath("ButtonStart")
+_button_help = NodePath("ButtonHelp")
+_button_credits = NodePath("ButtonThx")
+_button_achievement = NodePath("ButtonAch")
+_button_end_game = NodePath("ButtonExit")
+_button_close_help = NodePath("PanelHelp/ButtonClose")
+_button_close_credits = NodePath("PanelThx/ButtonClose")
+_button_close_achievement = NodePath("PanelAchievement/ButtonClose")
+_button_check_language = NodePath("ButtonCheckLanguage")
+_label_setting_menu_title = NodePath("../GameUI/PanelMenu/TitleLabel")
+_button_setting_menu_continue = NodePath("../GameUI/PanelMenu/ButtonGroup/ContinueButton")
+_button_setting_menu_restart = NodePath("../GameUI/PanelMenu/ButtonGroup/RestartButton")
+_button_setting_menu_back_nenu = NodePath("../GameUI/PanelMenu/ButtonGroup/MenuButton")
+_button_settle_back_nenu = NodePath("../GameUI/PanelSettle/ButtonGroup/MenuButton")
+_label_game_enemy_name = NodePath("../GameUI/SubViewport/EnemyNameLabel")
+_label_game_enemy_description = NodePath("../GameUI/EnemyDescriptionLabel")
+_panel_thx = NodePath("PanelThx")
+_panel_help = NodePath("PanelHelp")
+_panel_ach = NodePath("PanelAchievement")
+_rich_text_credits = NodePath("PanelThx/RichTextLabel")
+_rich_text_help = NodePath("PanelHelp/ScrollContainer/RichTextLabel")
+_rich_text_ach = NodePath("PanelAchievement/ScrollContainer/RichTextLabel")
+_label_version = NodePath("LabelVersion")
+
+[node name="TitleLabel" type="Label" parent="MainUI"]
+layout_mode = 0
+offset_left = -562.0
+offset_top = -306.0
+offset_right = -207.0
+offset_bottom = -187.0
+text = "观察者 Observer"
+label_settings = SubResource("LabelSettings_8vrvx")
+
+[node name="ButtonStart" type="Button" parent="MainUI"]
+layout_mode = 0
+offset_left = -552.0
+offset_top = -121.0
+offset_right = -352.0
+offset_bottom = -71.0
+theme = ExtResource("9_g53tl")
+text = "开始游戏"
+flat = true
+
+[node name="ButtonHelp" type="Button" parent="MainUI"]
+layout_mode = 0
+offset_left = -552.0
+offset_top = -50.0
+offset_right = -352.0
+theme = ExtResource("9_g53tl")
+text = "帮  助"
+flat = true
+
+[node name="ButtonThx" type="Button" parent="MainUI"]
+layout_mode = 0
+offset_left = -552.0
+offset_top = 17.0
+offset_right = -352.0
+offset_bottom = 67.0
+theme = ExtResource("9_g53tl")
+text = "素材声明"
+flat = true
+
+[node name="ButtonAch" type="Button" parent="MainUI"]
+layout_mode = 1
+offset_left = -552.0
+offset_top = 83.0
+offset_right = -352.0
+offset_bottom = 133.0
+theme = ExtResource("9_g53tl")
+text = "成  就"
+flat = true
+
+[node name="ButtonExit" type="Button" parent="MainUI"]
+layout_mode = 0
+offset_left = -552.0
+offset_top = 152.0
+offset_right = -352.0
+offset_bottom = 202.0
+theme = ExtResource("9_g53tl")
+text = "结束游戏"
+flat = true
+
+[node name="Player" type="TextureRect" parent="MainUI"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -328.0
+offset_top = -221.0
+offset_right = -168.0
+offset_bottom = -61.0
+scale = Vector2(0.467022, 0.482681)
+texture = ExtResource("7_n6p2k")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyesFront" type="TextureRect" parent="MainUI/Player"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 23.5535
+offset_top = 20.7177
+offset_right = 173.554
+offset_bottom = 175.718
+texture = ExtResource("8_vlyvo")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyesInner" type="TextureRect" parent="MainUI/Player/EyesFront"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 10.6948
+offset_top = 18.2153
+offset_right = 132.695
+offset_bottom = 173.215
+texture = ExtResource("9_jlsc5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ChangeEnemy" type="Control" parent="MainUI"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 221.0
+offset_top = 102.0
+offset_right = 261.0
+offset_bottom = 142.0
+
+[node name="Enemy" type="TextureRect" parent="MainUI/ChangeEnemy"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 164.0
+offset_bottom = 162.0
+texture = ExtResource("7_n6p2k")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyesFront" type="TextureRect" parent="MainUI/ChangeEnemy/Enemy"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -6.0
+offset_top = -11.0
+offset_right = 154.0
+offset_bottom = 149.0
+texture = ExtResource("8_vlyvo")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyesInner" type="TextureRect" parent="MainUI/ChangeEnemy/Enemy/EyesFront"]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 160.0
+offset_bottom = 160.0
+texture = ExtResource("9_jlsc5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ButtonLast" type="TextureButton" parent="MainUI/ChangeEnemy"]
+layout_mode = 0
+offset_left = -110.0
+offset_top = 40.0
+offset_right = -26.0
+offset_bottom = 120.0
+theme = ExtResource("9_g53tl")
+texture_normal = ExtResource("8_8ja4j")
+stretch_mode = 4
+
+[node name="ButtonNext" type="TextureButton" parent="MainUI/ChangeEnemy"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 42.0
+offset_right = 281.0
+offset_bottom = 122.0
+theme = ExtResource("9_g53tl")
+texture_normal = ExtResource("9_gt45n")
+stretch_mode = 4
+
+[node name="LabelEnemyName" type="Label" parent="MainUI/ChangeEnemy"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = -42.0
+offset_right = 126.0
+offset_bottom = 3.0
+text = "普瞳"
+label_settings = ExtResource("22_3w1jc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelEnemyDescription" type="Label" parent="MainUI/ChangeEnemy"]
+layout_mode = 0
+offset_left = -83.0
+offset_top = -174.0
+offset_right = 356.0
+offset_bottom = -120.0
+text = "很普通的眼珠子，没什么特色"
+label_settings = ExtResource("22_3w1jc")
+autowrap_mode = 2
+
+[node name="EnemyHealthContainer" type="HBoxContainer" parent="MainUI/ChangeEnemy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -79.0
+offset_right = -46.0
+offset_bottom = -119.0
+alignment = 1
+script = ExtResource("5_hiawh")
+health_num = 5
+
+[node name="Area2" type="TextureRect" parent="MainUI/ChangeEnemy"]
+visible = false
+layout_mode = 0
+offset_left = 132.0
+offset_top = 77.0
+offset_right = 256.0
+offset_bottom = 182.0
+mouse_filter = 2
+texture = ExtResource("14_gp25p")
+
+[node name="Area3" type="TextureRect" parent="MainUI/ChangeEnemy"]
+visible = false
+z_index = -2
+layout_mode = 1
+anchors_preset = -1
+offset_left = 56.0
+offset_top = 2.0
+offset_right = 216.0
+offset_bottom = 162.0
+mouse_filter = 2
+texture = ExtResource("7_n6p2k")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyesFront" type="TextureRect" parent="MainUI/ChangeEnemy/Area3"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 10.0
+offset_top = -20.0
+offset_right = 170.0
+offset_bottom = 140.0
+mouse_filter = 2
+texture = ExtResource("8_vlyvo")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyesInner" type="TextureRect" parent="MainUI/ChangeEnemy/Area3/EyesFront"]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 160.0
+offset_bottom = 160.0
+mouse_filter = 2
+texture = ExtResource("9_jlsc5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Speed" type="TextureRect" parent="MainUI/ChangeEnemy/Area3"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 78.0
+offset_right = 201.0
+offset_bottom = 183.0
+mouse_filter = 2
+texture = ExtResource("14_gp25p")
+
+[node name="Area4" type="ColorRect" parent="MainUI/ChangeEnemy"]
+visible = false
+z_index = 9
+material = ExtResource("15_we7bn")
+layout_mode = 0
+offset_left = 31.0
+offset_top = 19.0
+offset_right = 128.0
+offset_bottom = 121.0
+color = Color(0.0941176, 0.0941176, 0.0941176, 0.819608)
+
+[node name="Area5" type="TextureRect" parent="MainUI/ChangeEnemy"]
+visible = false
+material = ExtResource("16_we7bn")
+layout_mode = 0
+offset_left = -3.00001
+offset_top = -43.0
+offset_right = 125.0
+offset_bottom = 85.0
+scale = Vector2(1.25, 1.58594)
+texture = ExtResource("17_we7bn")
+
+[node name="PanelHelp" type="Panel" parent="MainUI"]
+visible = false
+z_index = 50
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -445.0
+offset_top = -250.0
+offset_right = 445.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainUI/PanelHelp"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 20.0
+offset_right = 882.0
+offset_bottom = 434.0
+horizontal_scroll_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUI/PanelHelp/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("9_g53tl")
+theme_override_styles/background = SubResource("StyleBoxFlat_mu2ks")
+bbcode_enabled = true
+text = "[color=#66CCFF]▍ 游戏背景[/color]
+在纸片人横行的瞳之国，​搜寻者和观察者是两大卷王职业：
+
+​搜寻者：整天拿着量角器在二维世界找三维物体，找到就大喊\"坐标已锁定！\"
+​观察者：负责把三维物体\"降维打击\"成二次元装备，但经常因为视角偏差翻车——
+
+[color=#66CCFF]▍ 镇国神器の千层套路[/color]
+
+正后看 →[color=#e4c914] 黄■盾牌[/color]（防御MAX）
+侧面看 → [color=#ff0000] 红|长剑[/color]（攻击MAX）
+俯仰看 → [color=#75e3ff] 蓝 / 法杖[/color]（魔法MAX）
+
+[color=#66CCFF]▍ 操作说明[/color]
+
+[color=red]A  D  ← →[/color]  切换水平观察角度
+[color=red]W  S  ↑  ↓[/color]   切换垂直观察角度  
+
+[color=#66CCFF]▍ 克制关系[/color]
+■盾牌 ​反弹 | 长剑 → \"你砍任你砍，我自岿然不动\"
+| 长剑 ​刺穿 / 法杖 → \"近战专治花里胡哨\"
+/ 法杖 ​轰飞 ■ 盾牌 → \"魔法破防，盾牌自闭\"
+
+当相同装备对撞时：\"禁止套娃！\"（系统直接卡死）
+
+[color=#66CCFF]▍ 提示[/color]
+
+• 使用方向键切换观察角度  
+• 在敌人攻击前观察克制形态  
+• 连击数越高额外分数加成越高  
+• 被克制则连击数清零"
+fit_content = true
+scroll_following = true
+
+[node name="ButtonClose" type="Button" parent="MainUI/PanelHelp"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -51.0
+offset_right = 50.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("9_g53tl")
+text = "关  闭"
+flat = true
+
+[node name="PanelThx" type="Panel" parent="MainUI"]
+visible = false
+z_index = 50
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -445.0
+offset_top = -148.0
+offset_right = 445.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUI/PanelThx"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 22.0
+offset_right = -26.0
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_g53tl")
+theme_override_styles/background = SubResource("StyleBoxFlat_mu2ks")
+bbcode_enabled = true
+text = "[center][color=#66CCFF]▍ 素材来源说明[/color][/center]
+
+[indent][color=#FFA500]CC0素材：[/color]
+来自 [url=https://kenney.nl]Kenney.nl[/url] 的模型/UI资源
+（遵循CC0 1.0公有领域协议）
+
+[color=#FFA500]原创音乐：[/color]
+\"音乐由[乌鸦Producer]提供\"[/indent]
+
+[center][color=#888888]※ 本游戏为爱好者创作，不用于商业用途 ※[/color][/center]"
+fit_content = true
+scroll_following = true
+
+[node name="ButtonClose" type="Button" parent="MainUI/PanelThx"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -51.0
+offset_right = 50.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("9_g53tl")
+text = "关  闭"
+flat = true
+
+[node name="PanelAchievement" type="Panel" parent="MainUI"]
+visible = false
+z_index = 50
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -445.0
+offset_top = -250.0
+offset_right = 445.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainUI/PanelAchievement"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 20.0
+offset_right = 882.0
+offset_bottom = 434.0
+horizontal_scroll_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUI/PanelAchievement/ScrollContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("9_g53tl")
+theme_override_styles/background = SubResource("StyleBoxFlat_mu2ks")
+bbcode_enabled = true
+text = "[center][font size=20][color=#FFD700]记录[/color][/font][/center]
+
+[table=3]
+[cell][color=#66CCFF]关卡进度[/color][/cell]
+[cell] [/cell]
+[cell]%s[/cell]
+[cell][color=#66CCFF]最高得分[/color][/cell]
+[cell] [/cell]
+[cell]%d[/cell]
+[cell][color=#66CCFF]连击[/color][/cell]
+[cell] [/cell]
+[cell]普瞳:%d  速瞳:%d  重瞳:%d  黑瞳:%d  幻瞳:%d[/cell]
+[/table]
+
+[center][font size=20][color=#00FF00]成就[/color][/font][/center]
+[indent]
+[color=#FFA500]▍进度[/color]
+%s 进入游戏		%s 击败普瞳		%s 击败速瞳  		%s 击败重瞳 		%s 击败黑瞳		%s 击败幻瞳
+
+[color=#FFA500]▍Full Combo！[/color]
+%s 普瞳fc		%s 速瞳fc  		%s 重瞳fc 		%s 黑瞳fc		%s 幻瞳fc
+
+[color=#FFA500]▍最高分数[/color]
+%s 最高分数到达160		%s 最高分数到达266		%s 最高分数到达399		%s 最高分数到达420		%s 最高分数到达768
+[/indent]"
+fit_content = true
+scroll_following = true
+
+[node name="ButtonClose" type="Button" parent="MainUI/PanelAchievement"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -51.0
+offset_right = 50.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("9_g53tl")
+text = "关  闭"
+flat = true
+
+[node name="LabelProducer" type="Label" parent="MainUI"]
+layout_mode = 0
+offset_left = 455.0
+offset_top = 280.0
+offset_right = 563.0
+offset_bottom = 321.0
+text = "by ringoFF"
+label_settings = ExtResource("26_8vrvx")
+
+[node name="LabelVersion" type="Label" parent="MainUI"]
+layout_mode = 0
+offset_left = 498.0
+offset_top = 241.0
+offset_right = 559.0
+offset_bottom = 282.0
+label_settings = ExtResource("26_8vrvx")
+
+[node name="ButtonCheckLanguage" type="CheckButton" parent="MainUI"]
+layout_mode = 0
+offset_left = 311.0
+offset_top = -313.0
+offset_right = 560.0
+offset_bottom = -264.0
+theme = ExtResource("9_g53tl")
+flat = true
+alignment = 2
+
+[node name="GameUI" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = -580.0
+offset_top = -323.0
+offset_right = 577.0
+offset_bottom = 323.0
+
+[node name="PlayerHealthContainer" type="HBoxContainer" parent="GameUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 330.0
+offset_top = 196.0
+offset_right = -40.5
+offset_bottom = -388.0
+script = ExtResource("4_60i0e")
+health_num = 3
+
+[node name="EnemyHealthContainer" type="HBoxContainer" parent="GameUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 550.0
+offset_top = 417.0
+offset_right = 297.5
+offset_bottom = -167.0
+script = ExtResource("5_hiawh")
+health_num = 5
+
+[node name="PanelSettle" type="Panel" parent="GameUI" node_paths=PackedStringArray("main_ui")]
+visible = false
+z_index = 50
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 357.0
+offset_top = 128.0
+offset_right = -355.0
+offset_bottom = -125.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_vlyvo")
+main_ui = NodePath("../../MainUI")
+
+[node name="TitleLabel" type="Label" parent="GameUI/PanelSettle"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 23.0
+offset_right = 32.0
+offset_bottom = 68.0
+grow_horizontal = 2
+text = "通关"
+label_settings = ExtResource("22_3w1jc")
+horizontal_alignment = 1
+
+[node name="DetailBox" type="VBoxContainer" parent="GameUI/PanelSettle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -120.5
+offset_right = 100.0
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="EnemyLabel" type="Label" parent="GameUI/PanelSettle/DetailBox"]
+layout_mode = 2
+text = "敌人名称"
+label_settings = ExtResource("26_8vrvx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="GameUI/PanelSettle/DetailBox"]
+layout_mode = 2
+text = "获得分数"
+label_settings = ExtResource("26_8vrvx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ComboLabel" type="Label" parent="GameUI/PanelSettle/DetailBox"]
+layout_mode = 2
+text = "最大连击数"
+label_settings = ExtResource("26_8vrvx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthInfo" type="HBoxContainer" parent="GameUI/PanelSettle/DetailBox"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("11_jlsc5")
+
+[node name="ButtonGroup" type="VBoxContainer" parent="GameUI/PanelSettle"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -99.5
+offset_top = -99.0
+offset_right = 100.5
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ActionButton" type="Button" parent="GameUI/PanelSettle/ButtonGroup"]
+layout_mode = 2
+theme = ExtResource("9_g53tl")
+text = "继  续"
+flat = true
+
+[node name="MenuButton" type="Button" parent="GameUI/PanelSettle/ButtonGroup"]
+layout_mode = 2
+theme = ExtResource("9_g53tl")
+text = "返回主菜单"
+flat = true
+
+[node name="ScoreLabel" type="Label" parent="GameUI"]
+layout_mode = 0
+offset_left = 954.0
+offset_top = 517.0
+offset_right = 1077.0
+offset_bottom = 562.0
+text = "分数： 0"
+label_settings = ExtResource("22_3w1jc")
+vertical_alignment = 1
+
+[node name="ComboLabel" type="Label" parent="GameUI"]
+layout_mode = 0
+offset_left = 954.0
+offset_top = 582.0
+offset_right = 1077.0
+offset_bottom = 627.0
+text = "连击： 0"
+label_settings = ExtResource("22_3w1jc")
+vertical_alignment = 1
+
+[node name="PanelMenu" type="Panel" parent="GameUI" node_paths=PackedStringArray("main_ui", "queue_manager")]
+visible = false
+z_index = 50
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 357.0
+offset_top = 88.0
+offset_right = -355.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("18_t5k4l")
+main_ui = NodePath("../../MainUI")
+queue_manager = NodePath("../../QueueManager")
+
+[node name="TitleLabel" type="Label" parent="GameUI/PanelMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 23.0
+offset_right = 32.0
+offset_bottom = 68.0
+grow_horizontal = 2
+text = "设置"
+label_settings = ExtResource("22_3w1jc")
+horizontal_alignment = 1
+
+[node name="DetailBox" type="VBoxContainer" parent="GameUI/PanelMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.5
+offset_top = -143.5
+offset_right = 100.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="EnemyLabel" type="Label" parent="GameUI/PanelMenu/DetailBox"]
+layout_mode = 2
+text = "敌人名称"
+label_settings = ExtResource("26_8vrvx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="GameUI/PanelMenu/DetailBox"]
+layout_mode = 2
+text = "获得分数"
+label_settings = ExtResource("26_8vrvx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ComboLabel" type="Label" parent="GameUI/PanelMenu/DetailBox"]
+layout_mode = 2
+text = "最大连击数"
+label_settings = ExtResource("26_8vrvx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonGroup" type="VBoxContainer" parent="GameUI/PanelMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -99.5
+offset_top = -99.0
+offset_right = 100.5
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ContinueButton" type="Button" parent="GameUI/PanelMenu/ButtonGroup"]
+layout_mode = 2
+theme = ExtResource("9_g53tl")
+text = "继  续"
+flat = true
+
+[node name="RestartButton" type="Button" parent="GameUI/PanelMenu/ButtonGroup"]
+layout_mode = 2
+theme = ExtResource("9_g53tl")
+text = "重新开始"
+flat = true
+
+[node name="MenuButton" type="Button" parent="GameUI/PanelMenu/ButtonGroup"]
+layout_mode = 2
+theme = ExtResource("9_g53tl")
+text = "返回主菜单"
+flat = true
+
+[node name="EnemyDescriptionLabel" type="Label" parent="GameUI"]
+layout_mode = 0
+offset_left = 703.0
+offset_top = 318.0
+offset_right = 1129.0
+offset_bottom = 372.0
+text = "很普通的眼珠子，没什么特色"
+label_settings = ExtResource("22_3w1jc")
+autowrap_mode = 2
+
+[node name="Area2" type="TextureRect" parent="GameUI"]
+visible = false
+layout_mode = 0
+offset_left = 776.0
+offset_top = 566.0
+offset_right = 900.0
+offset_bottom = 671.0
+mouse_filter = 2
+texture = ExtResource("14_gp25p")
+
+[node name="Area3" type="TextureRect" parent="GameUI"]
+visible = false
+z_index = -2
+layout_mode = 1
+anchors_preset = -1
+offset_left = 713.0
+offset_top = 499.0
+offset_right = 873.0
+offset_bottom = 659.0
+mouse_filter = 2
+texture = ExtResource("7_n6p2k")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyesFront" type="TextureRect" parent="GameUI/Area3"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 10.0
+offset_top = -20.0
+offset_right = 170.0
+offset_bottom = 140.0
+texture = ExtResource("8_vlyvo")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyesInner" type="TextureRect" parent="GameUI/Area3/EyesFront"]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 160.0
+offset_bottom = 160.0
+texture = ExtResource("9_jlsc5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Speed" type="TextureRect" parent="GameUI/Area3"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 78.0
+offset_right = 201.0
+offset_bottom = 183.0
+mouse_filter = 2
+texture = ExtResource("14_gp25p")
+
+[node name="PanelKeyprompt" parent="GameUI" instance=ExtResource("6_wj18i")]
+offset_left = 46.0
+offset_top = 203.0
+offset_right = 46.0
+offset_bottom = 203.0
+
+[node name="SubViewport" type="SubViewport" parent="GameUI"]
+
+[node name="EnemyNameLabel" type="Label" parent="GameUI/SubViewport"]
+offset_top = 286.0
+offset_right = 64.0
+offset_bottom = 340.0
+text = "普瞳"
+label_settings = ExtResource("22_3w1jc")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Enemy" type="TextureRect" parent="GameUI/SubViewport"]
+offset_left = 62.0
+offset_top = 177.0
+offset_right = 222.0
+offset_bottom = 337.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_n6p2k")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyesFront" type="TextureRect" parent="GameUI/SubViewport/Enemy"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -6.0
+offset_top = -11.0
+offset_right = 154.0
+offset_bottom = 149.0
+texture = ExtResource("8_vlyvo")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyesInner" type="TextureRect" parent="GameUI/SubViewport/Enemy/EyesFront"]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 160.0
+offset_bottom = 160.0
+texture = ExtResource("9_jlsc5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Area4" type="ColorRect" parent="GameUI/SubViewport"]
+visible = false
+z_index = 9
+material = ExtResource("15_we7bn")
+offset_left = 87.0
+offset_top = 193.0
+offset_right = 184.0
+offset_bottom = 295.0
+color = Color(0.0941176, 0.0941176, 0.0941176, 0.819608)
+
+[node name="Area5" type="TextureRect" parent="GameUI/SubViewport"]
+visible = false
+material = ExtResource("16_we7bn")
+offset_left = -13.0
+offset_top = 180.0
+offset_right = 115.0
+offset_bottom = 308.0
+scale = Vector2(2.08594, 1.21484)
+texture = ExtResource("17_we7bn")
+
+[node name="TextureRect" type="TextureRect" parent="GameUI"]
+z_index = -11
+layout_mode = 0
+offset_left = 563.0
+offset_top = 310.0
+offset_right = 1138.0
+offset_bottom = 833.0
+mouse_filter = 2
+texture = SubResource("ViewportTexture_we7bn")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="BattleOverArea" type="ColorRect" parent="GameUI"]
+z_index = 9
+material = ExtResource("15_we7bn")
+layout_mode = 0
+offset_left = 437.0
+offset_top = 384.0
+offset_right = 576.0
+offset_bottom = 1218.0
+rotation = 0.785398
+color = Color(0.0941176, 0.0941176, 0.0941176, 0.819608)
+
+[node name="fugure1" type="TextureRect" parent="GameUI"]
+visible = false
+layout_mode = 0
+offset_left = 413.0
+offset_top = 276.0
+offset_right = 541.0
+offset_bottom = 404.0
+rotation = 2.35619
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("23_kk78y")
+
+[node name="fugure2" type="TextureRect" parent="GameUI"]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 427.0
+offset_right = 646.0
+offset_bottom = 555.0
+rotation = -0.785398
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("24_ahgcb")
+
+[node name="CountDownAnim" type="AnimationPlayer" parent="GameUI"]
+libraries = {
+&"": SubResource("AnimationLibrary_0fhfv")
+}
+
+[node name="CountDown" type="TextureRect" parent="GameUI"]
+layout_mode = 0
+offset_left = 521.0
+offset_top = 96.0
+offset_right = 561.0
+offset_bottom = 136.0
+scale = Vector2(2.5, 2.5)
+texture = SubResource("AtlasTexture_doyqq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_j0xcf")
+
+[node name="LoadingUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="LoadingRect" type="ColorRect" parent="LoadingUI"]
+z_index = 100
+material = ExtResource("32_k8akk")
+layout_mode = 0
+offset_left = -640.0
+offset_top = -640.0
+offset_right = 640.0
+offset_bottom = 640.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="timeout" from="QueueManager/Timer" to="QueueManager" method="_on_timer_timeout"]
+[connection signal="pressed" from="MainUI/ButtonStart" to="MainUI" method="_on_button_start_pressed"]
+[connection signal="pressed" from="MainUI/ButtonHelp" to="MainUI" method="_on_button_help_pressed"]
+[connection signal="pressed" from="MainUI/ButtonThx" to="MainUI" method="_on_button_thx_pressed"]
+[connection signal="pressed" from="MainUI/ButtonAch" to="MainUI" method="_on_button_ach_pressed"]
+[connection signal="pressed" from="MainUI/ButtonExit" to="MainUI" method="_on_button_exit_pressed"]
+[connection signal="pressed" from="MainUI/ChangeEnemy/ButtonLast" to="MainUI" method="_on_button_last_pressed"]
+[connection signal="pressed" from="MainUI/ChangeEnemy/ButtonNext" to="MainUI" method="_on_button_next_pressed"]
+[connection signal="pressed" from="MainUI/PanelHelp/ButtonClose" to="MainUI" method="_on_help_button_close_pressed"]
+[connection signal="pressed" from="MainUI/PanelThx/ButtonClose" to="MainUI" method="_on_thx_button_close_pressed"]
+[connection signal="pressed" from="MainUI/PanelAchievement/ButtonClose" to="MainUI" method="_on_ach_button_close_pressed"]
+[connection signal="toggled" from="MainUI/ButtonCheckLanguage" to="MainUI" method="_on_button_check_language_toggled"]
+[connection signal="continue_requested" from="GameUI/PanelSettle" to="MainUI" method="_on_panel_settle_continue_requested"]
+[connection signal="menu_requested" from="GameUI/PanelSettle" to="MainUI" method="_on_panel_settle_menu_requested"]
+[connection signal="retry_requested" from="GameUI/PanelSettle" to="MainUI" method="_on_panel_settle_retry_requested"]
+[connection signal="pressed" from="GameUI/PanelSettle/ButtonGroup/ActionButton" to="GameUI/PanelSettle" method="_on_action_btn_pressed"]
+[connection signal="pressed" from="GameUI/PanelSettle/ButtonGroup/MenuButton" to="GameUI/PanelSettle" method="_on_menu_btn_pressed"]
+[connection signal="menu_requested" from="GameUI/PanelMenu" to="MainUI" method="_on_panel_settle_menu_requested"]
+[connection signal="retry_requested" from="GameUI/PanelMenu" to="MainUI" method="_on_panel_settle_retry_requested"]
+[connection signal="pressed" from="GameUI/PanelMenu/ButtonGroup/ContinueButton" to="GameUI/PanelMenu" method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="GameUI/PanelMenu/ButtonGroup/RestartButton" to="GameUI/PanelMenu" method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="GameUI/PanelMenu/ButtonGroup/MenuButton" to="GameUI/PanelMenu" method="_on_menu_btn_pressed"]
